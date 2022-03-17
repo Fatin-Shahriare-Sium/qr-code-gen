@@ -38,5 +38,18 @@ body {
 
 .gen-btn{
   background-color: black;
-  color:white
+  color:white;
+  padding: .75rem;
+  border-radius: 3px;
+}
+.gen-btn:focus{
+  outline: none;
+  border: none;
+}
+
+.download-btn{
+  background-color: transparent;
+  color: #000000;
+  padding: .75rem;
+  border-radius: .75rem;
 }

@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import useGenQrCode from '../hooks/useGenQRCode'
 
 const InfoQRCode: React.FC = () => {
-    let [qrUrl, setQrUrl] = useState('')
+    let [qrUrl, setQrUrl] = useState<string>('')
+    let [qrName, setQrName] = useState<string>()
     let { genQrCode } = useGenQrCode()
     async function showQrCode(e: any) {
         e.preventDefault()
@@ -12,6 +13,7 @@ const InfoQRCode: React.FC = () => {
         let gmail = e.target[2].value
         let address = e.target[3].value
         console.log(name, phoneNumber, gmail, address);
+        setQrName(`${name}-info-qr-code`)
         let urlx = await genQrCode(`
         Name:${name}
         phoneNumber:${phoneNumber}
@@ -25,8 +27,8 @@ const InfoQRCode: React.FC = () => {
         if (qrUrl) {
             return <>
                 {qrUrl && <img src={qrUrl} alt="" />}
-                <a href={qrUrl} download='qr-code' >
-                    <button>Download Qr Code</button>
+                <a id='download-btn' href={qrUrl} download={qrName} >
+                    <button className='download-btn'>Download Qr Code</button>
                 </a>
             </>
         }
@@ -55,7 +57,7 @@ const InfoQRCode: React.FC = () => {
                         <textarea></textarea>
                     </div>
 
-                    <button className='gen-btn' type='submit'>Generate QR</button>
+                    <button style={{ marginTop: "2rem" }} className='gen-btn' type='submit'>Generate QR</button>
                 </form>
                 {showBelow()}
             </div>
