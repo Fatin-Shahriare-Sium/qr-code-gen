@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import useGenQrCode from '../hooks/useGenQRCode'
+import usePrint from '../hooks/usePrint'
 
 const InfoQRCode: React.FC = () => {
     let [qrUrl, setQrUrl] = useState<string>('')
     let [qrName, setQrName] = useState<string>()
     let { genQrCode } = useGenQrCode()
+    let { qrPrinting } = usePrint()
     async function showQrCode(e: any) {
         e.preventDefault()
         console.log('e', e);
@@ -26,13 +28,19 @@ const InfoQRCode: React.FC = () => {
     function showBelow() {
         if (qrUrl) {
             return <>
-                {qrUrl && <img src={qrUrl} alt="" />}
-                <a id='download-btn' href={qrUrl} download={qrName} >
-                    <button className='download-btn'>Download Qr Code</button>
-                </a>
+                <div style={{ display: "flex", justifyContent: 'center', alignItems: 'center' }}>
+                    {qrUrl && <img src={qrUrl} alt="" />}
+                </div>
+                <div style={{ width: '90%', margin: "auto", display: "flex", justifyContent: "space-between" }}>
+                    <a id='download-btn' href={qrUrl} download={qrName} >
+                        <button className='download-btn'>Download Qr Code</button>
+                    </a>
+                    <button className='print-btn' onClick={() => qrPrinting(qrUrl)}>Print QR</button>
+                </div>
             </>
         }
     }
+
 
     return (
         <div style={{ width: '90%', margin: 'auto' }} className='info-qr-wrapper'>
@@ -57,7 +65,7 @@ const InfoQRCode: React.FC = () => {
                         <textarea></textarea>
                     </div>
 
-                    <button style={{ marginTop: "2rem" }} className='gen-btn' type='submit'>Generate QR</button>
+                    <button className='gen-btn' type='submit'>Generate QR</button>
                 </form>
                 {showBelow()}
             </div>

@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import useGenQrCode from '../hooks/useGenQRCode'
+import usePrint from '../hooks/usePrint'
 
 const WifiQRCode: React.FC = () => {
     let [hide, setHide] = useState<boolean>(false)
     let [qrName, setqrName] = useState<string>('')
     let [qrUrl, setQrUrl] = useState<string>('')
+    let { qrPrinting } = usePrint()
     let { genQrCode } = useGenQrCode()
     async function showQrCode(e: any) {
         e.preventDefault()
@@ -23,13 +25,19 @@ const WifiQRCode: React.FC = () => {
     function showBelow() {
         if (qrUrl) {
             return <>
-                {qrUrl && <img src={qrUrl} alt="" />}
-                <a id='download-btn' href={qrUrl} download={qrName} >
-                    <button className='download-btn'>Download Qr Code</button>
-                </a>
+                <div style={{ display: "flex", justifyContent: 'center', alignItems: 'center' }}>
+                    {qrUrl && <img src={qrUrl} alt="" />}
+                </div>
+                <div style={{ width: '90%', margin: "auto", display: "flex", justifyContent: "space-between" }}>
+                    <a id='download-btn' href={qrUrl} download={qrName} >
+                        <button className='download-btn'>Download Qr Code</button>
+                    </a>
+                    <button className='print-btn' onClick={() => qrPrinting(qrUrl)}>Print QR</button>
+                </div>
             </>
         }
     }
+
 
     return (
         <div style={{ width: "90%", margin: 'auto' }}>

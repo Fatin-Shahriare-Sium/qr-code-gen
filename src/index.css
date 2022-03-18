@@ -41,10 +41,10 @@ body {
   color:white;
   padding: .75rem;
   border-radius: 3px;
-}
-.gen-btn:focus{
+  margin-top: 2rem;
   outline: none;
   border: none;
+
 }
 
 .download-btn{
@@ -52,4 +52,13 @@ body {
   color: #000000;
   padding: .75rem;
   border-radius: .75rem;
+}
+
+.print-btn{
+  background-color: black;
+  padding: .75rem;
+  border-radius: .75rem;
+  color: white;
+  outline: none;
+  border: none;
 }
