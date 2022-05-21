@@ -62,3 +62,31 @@ body {
   outline: none;
   border: none;
 }
+
+.qr-code-tab__wrapper{
+  width: 90%;
+  margin:auto;
+}
+.qr-code-tab__container{
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  margin: auto;
+  height: max-content;
+  background-color:black;
+}
+.qr-code-tab__single{
+  margin: .75rem;
+  /* padding: .75rem; */
+  height: auto;
+}
+.qr-code-tab__single p{
+  font-size: 2rem;
+  font-weight: 700;
+  background-color: red;
+
+}
+
+.qr-code-tab__single p tab-active{
+
+}
