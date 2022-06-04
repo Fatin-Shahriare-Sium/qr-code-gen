@@ -66,27 +66,44 @@ body {
 .qr-code-tab__wrapper{
   width: 90%;
   margin:auto;
+  padding: .75rem 0rem;
 }
 .qr-code-tab__container{
   display: flex;
   justify-content: space-around;
   width: 90%;
-  margin: auto;
-  height: max-content;
-  background-color:black;
+
 }
+.qr-code-tab__container a{
+  text-decoration: none;
+  color:inherit;
+}
+
 .qr-code-tab__single{
-  margin: .75rem;
-  /* padding: .75rem; */
-  height: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 10vh;
+  border-radius: 7%;
+  padding: 0rem .75rem;
+  transition: all .3s ease;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+/* use hight:10vw for potrait mode */
+.qr-code-tab__single img{
+  
+}
+
+
 .qr-code-tab__single p{
   font-size: 2rem;
   font-weight: 700;
-  background-color: red;
-
+  padding: 0rem .75rem;
+  
+  
 }
 
-.qr-code-tab__single p tab-active{
+.tab-active{
+  background-color: #D0DEFF!important;
 
 }
