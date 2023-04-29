@@ -18,6 +18,7 @@ let Homepage:React.FC=()=> {
             </div>
             <div className='homepage-conatiner__2'>
                 <img src={qrLandImg} alt="fff" />
+                
             </div>
         </div>
     </div>

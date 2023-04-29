@@ -69,6 +69,7 @@
   @media screen and ( max-width:855px) {
     .homepage-conatiner__1{
         width: 100%;
+        height: 50%;
         
     }
     .homepage-conatiner__2 {
