@@ -9,7 +9,7 @@ let Homepage:React.FC=()=> {
                 <div>
                     <h1>QR CODE GENERATOR.</h1>
                     <Link to={"/gen-qr-code"}>
-                    <button  className='gen-btn'>Generate</button>
+                    <button  className='gen-btn-home'>Generate</button>
                     </Link>
                     
                 </div>
